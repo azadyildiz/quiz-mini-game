@@ -1,0 +1,36 @@
+html,body{
+    margin: 0;
+    font-size: 18px;
+    height:100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+.inv{
+    display: none;
+}
+.category-container{
+    width: max-content;
+}
+.container{    
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 2rem;
+    border-radius: .5rem;
+    background-color: #cad5e9;
+}
+.categories{
+    background-color:#dbe2f4;
+    width: 10rem;
+    height: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+
+}
+.categories:hover{
+    background: #c9c9d4;
+}

@@ -1,22 +1,76 @@
-function Question(question,options,answer){
-    this.question = question
-    this.options = options
-    this.answer = answer
-}
-function Category(name,questions){
-    this.name = name
-    this.questions = questions
+var categoryContainer = document.getElementById("categoryContainer")
+var questionContainer = document.getElementById("questionContainer")
+// CATEGORY CHOOSE SCREEN
+for(category of categories){
+    var div = document.createElement("div")
+    div.className = "options"
+    div.textContent = category.name
+    div.addEventListener("click",function(e){
+        categoryChoose(e)
+    })
+    categoryContainer.appendChild(div)
 }
 
-let mathQuestions = []
-let englishQuestions = []
-var q1 = new Question("math q1",["a","b","c"],"b")
-var q2 = new Question("math q2",["d","e","f"],"f")
-mathQuestions.push(q1)
-mathQuestions.push(q2)
-var q3 = new Question("math q1",["a","b","c"],"b")
-var q4 = new Question("math q2",["d","e","f"],"f")
-englishQuestions.push(q3)
-englishQuestions.push(q4)
-var c1 = new Category("Math",mathQuestions)
-var c2 = new Category("English",englishQuestions)
+// WHEN CLICKED AN OPTION
+function categoryChoose(event){
+    for(category of categories){
+        if(event.target.textContent == category.name){
+            categoryContainer.style.opacity = "0"
+            categoryContainer.style.zIndex = "0"
+            setTimeout(function(){
+                categoryContainer.className = "category-container container inv"
+                questionContainer.className = "question-container container"
+                setTimeout(function(){
+                    questionContainer.style.opacity = "1"
+                    questionContainer.style.zIndex = "2"
+                },500)
+            },500)
+            createQuestions(category)
+        }
+    }
+}
+
+function createQuestions(category){
+    for(question of category.questions){
+        var div = document.createElement("div")
+        // WE JUST PRINT SCREEN FIRST QUESTION
+        if(category.questions.indexOf(question) == 0){
+            div.className = `${category.questions.indexOf(question)}`
+        }
+        else{
+            div.className = `${category.questions.indexOf(question)} inv`
+        }
+        //------------------------------------
+        var span = document.createElement("span")
+        span.className = "question"
+        span.textContent = `${question.question}`
+        div.appendChild(span)
+        //------------------------------------
+        // CREATED OPTIONS
+        var divOption = document.createElement("div")
+        divOption.className = "option-container"
+        for(option of question.options){
+            var divOptions = document.createElement("div")
+            divOptions.className = "options"
+            divOptions.textContent = `${option}`
+            divOption.appendChild(divOptions)
+        }
+        div.appendChild(divOption)
+        questionContainer.appendChild(div)
+        //------------------------------------
+    }
+            // BACK AND NEXT BUTTON
+            var divButton = document.createElement("div")
+            divButton.className = "button-container"
+            var divButton1 = document.createElement("div")
+            divButton1.className = "button"
+            divButton1.textContent = "< Back"
+            var divButton2 = document.createElement("div")
+            divButton2.className = "button"
+            divButton2.textContent = "Next >"
+            divButton.appendChild(divButton1)
+            divButton.appendChild(divButton2)
+            questionContainer.appendChild(divButton)
+            //********************
+
+}

@@ -46,7 +46,7 @@ html,body{
 .options:hover{
     background: #dee2e6;
 }
-.button-container{
+.buttons{
     display: flex;
     justify-content:space-around;
 }

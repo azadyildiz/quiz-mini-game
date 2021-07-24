@@ -13,18 +13,19 @@ function Question(question,options,answer,category){
     this.options = options
     this.answer = answer
     this.category = category
+    let userAnswer
 }
 
 var questions = []
-var q1 = new Question("math q1",["a","b","c"],"b","Math")
+var q1 = new Question("math q1",["a","b","c"],0,"Math")
 questions.push(q1)
-var q2 = new Question("math q2",["d","e","f"],"f","Math")
+var q2 = new Question("math q2",["d","e","f"],1,"Math")
 questions.push(q2)
-var q3 = new Question("eng q1",["a","b","c"],"b","English")
+var q3 = new Question("eng q1",["a","b","c"],1,"English")
 questions.push(q3)
-var q4 = new Question("eng q2",["d","e","f"],"f","English")
+var q4 = new Question("eng q2",["d","e","f"],2,"English")
 questions.push(q4)
-var q5 = new Question("math q3",["d","e","f"],"f","Math")
+var q5 = new Question("math q3",["d","e","f"],2,"Math")
 questions.push(q5)
 
 for(let question of questions){

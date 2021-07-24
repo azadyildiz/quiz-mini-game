@@ -17,15 +17,15 @@ function Question(question,options,answer,category){
 }
 
 var questions = []
-var q1 = new Question("math q1",["a","b","c"],0,"Math")
+var q1 = new Question("2+2",["4","5","6"],0,"Math")
 questions.push(q1)
-var q2 = new Question("math q2",["d","e","f"],1,"Math")
+var q2 = new Question("2-2",["2","0","4"],1,"Math")
 questions.push(q2)
-var q3 = new Question("eng q1",["a","b","c"],1,"English")
+var q3 = new Question("______ are you from?",["Where","When","What"],0,"English")
 questions.push(q3)
-var q4 = new Question("eng q2",["d","e","f"],2,"English")
+var q4 = new Question("I ___ school yesterday.",["go","went","going"],1,"English")
 questions.push(q4)
-var q5 = new Question("math q3",["d","e","f"],2,"Math")
+var q5 = new Question("2x1",["4","3","2"],2,"Math")
 questions.push(q5)
 
 for(let question of questions){
